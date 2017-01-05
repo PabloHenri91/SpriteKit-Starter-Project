@@ -78,8 +78,7 @@ class Label: Control {
         
         self.shadowLabelNodes.append(shadowLabelNode)
         self.addChild(shadowLabelNode)
-        self.labelNode.removeFromParent()
-        self.addChild(self.labelNode)
+        self.labelNode.bringToFront()
     }
     
     func addBorder(color: SKColor = GameColors.fontWhite, thickness: Int = 1) {

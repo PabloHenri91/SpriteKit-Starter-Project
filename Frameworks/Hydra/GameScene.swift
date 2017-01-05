@@ -26,10 +26,10 @@ class GameScene: SKScene {
     
     static var currentTime: TimeInterval = 0
     
-    static let defaultTransition = SKTransition.crossFade(withDuration: 0.25)
-    static let defaultFilteringMode: SKTextureFilteringMode = .linear
+    static var defaultTransition = SKTransition.crossFade(withDuration: 0.25)
+    static var defaultFilteringMode: SKTextureFilteringMode = .linear
     
-    static let defaultSize = CGSize(width: 667, height: 375)
+    static var defaultSize = CGSize(width: 375, height: 667) // iPhone 6
     static var viewBoundsSize = CGSize.zero
     static var sketchSize = CGSize.zero
     static var currentSize = CGSize.zero
@@ -143,4 +143,18 @@ class GameScene: SKScene {
     }
     
     #endif
+}
+
+extension UITouch {
+    var delta: CGPoint {
+        get {
+            #if os(iOS) || os(tvOS)
+                return self.previousLocation(in: GameScene.current()!) - self.location(in: GameScene.current()!)
+                #endif
+            
+            #if os(OSX)
+                return CGPoint(x: -self.deltaX, y: self.deltaY)
+            #endif
+        }
+    }
 }

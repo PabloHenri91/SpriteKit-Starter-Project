@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842DD3E71E202A4200FCABFB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842DD3E51E202A4200FCABFB /* Crashlytics.framework */; };
+		842DD3EA1E202A4200FCABFB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842DD3E61E202A4200FCABFB /* Fabric.framework */; };
+		842DD3EE1E202D0B00FCABFB /* GameAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842DD3ED1E202D0B00FCABFB /* GameAnalytics.framework */; };
+		842DD3F01E2035F700FCABFB /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DD3EF1E2035F700FCABFB /* Metrics.swift */; };
 		843222661E1EC7A200122709 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432225A1E1EC7A200122709 /* CGFloat+Extensions.swift */; };
 		843222671E1EC7A200122709 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432225A1E1EC7A200122709 /* CGFloat+Extensions.swift */; };
 		843222681E1EC7A200122709 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432225A1E1EC7A200122709 /* CGFloat+Extensions.swift */; };
@@ -155,6 +159,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		842DD3E51E202A4200FCABFB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		842DD3E61E202A4200FCABFB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		842DD3ED1E202D0B00FCABFB /* GameAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GameAnalytics.framework; sourceTree = "<group>"; };
+		842DD3EF1E2035F700FCABFB /* Metrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		8432225A1E1EC7A200122709 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CGFloat+Extensions.swift"; path = "../../SKTUtils/SKTUtils/CGFloat+Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		8432225B1E1EC7A200122709 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CGPoint+Extensions.swift"; path = "../../SKTUtils/SKTUtils/CGPoint+Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		8432225C1E1EC7A200122709 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CGVector+Extensions.swift"; path = "../../SKTUtils/SKTUtils/CGVector+Extensions.swift"; sourceTree = SOURCE_ROOT; };
@@ -214,6 +222,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842DD3E71E202A4200FCABFB /* Crashlytics.framework in Frameworks */,
+				842DD3EE1E202D0B00FCABFB /* GameAnalytics.framework in Frameworks */,
+				842DD3EA1E202A4200FCABFB /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +265,9 @@
 		849C3A151E1EB26A0092225E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				842DD3E51E202A4200FCABFB /* Crashlytics.framework */,
+				842DD3E61E202A4200FCABFB /* Fabric.framework */,
+				842DD3ED1E202D0B00FCABFB /* GameAnalytics.framework */,
 				849C3A161E1EB2780092225E /* Hydra */,
 				849C3A3F1E1EC0760092225E /* SKTUtils */,
 			);
@@ -288,6 +302,7 @@
 			children = (
 				84F364381E1EF813000ECC8B /* CustomBox.swift */,
 				8456E90C1E20277E00345535 /* GameColorsExtension.swift */,
+				842DD3EF1E2035F700FCABFB /* Metrics.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -422,6 +437,7 @@
 				84E06AF51E1EAEF100AD72F0 /* Frameworks */,
 				84E06AF61E1EAEF100AD72F0 /* Resources */,
 				84E06B531E1EAEF100AD72F0 /* Embed Watch Content */,
+				842DD3E41E20297400FCABFB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -610,6 +626,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		842DD3E41E20297400FCABFB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Frameworks/Fabric.framework/run 3e7f6f013ee0dc3a5f45f5e4db357d194356643b 850680baf12e910f1f651af0e6d7a8d27fc45be1905cbf7f243b802cce84c15e";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84E06AF41E1EAEF100AD72F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -622,6 +654,7 @@
 				849C3A271E1EB2BD0092225E /* GameCamera.swift in Sources */,
 				849C3A211E1EB2BD0092225E /* Button.swift in Sources */,
 				849C3A2D1E1EB2BD0092225E /* GameScene.swift in Sources */,
+				842DD3F01E2035F700FCABFB /* Metrics.swift in Sources */,
 				843222691E1EC7A200122709 /* CGPoint+Extensions.swift in Sources */,
 				8456E90D1E20277E00345535 /* GameColorsExtension.swift in Sources */,
 				843222751E1EC7A200122709 /* SKAction+SpecialEffects.swift in Sources */,
@@ -943,6 +976,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JZ3J7RVLD7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PabloHenri91.Hydra;
@@ -959,6 +996,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JZ3J7RVLD7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PabloHenri91.Hydra;
@@ -976,6 +1017,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "tvOS LaunchImage";
 				DEVELOPMENT_TEAM = JZ3J7RVLD7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = tvOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PabloHenri91.Hydra;
@@ -991,6 +1036,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "tvOS LaunchImage";
 				DEVELOPMENT_TEAM = JZ3J7RVLD7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = tvOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PabloHenri91.Hydra;
@@ -1008,6 +1057,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = JZ3J7RVLD7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PabloHenri91.Hydra;
@@ -1024,6 +1077,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = JZ3J7RVLD7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PabloHenri91.Hydra;

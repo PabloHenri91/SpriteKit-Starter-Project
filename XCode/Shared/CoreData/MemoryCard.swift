@@ -22,14 +22,12 @@ class MemoryCard {
     }
     
     func newGame() {
-        //print("MemoryCard.newGame()")
         self.playerData = self.newPlayerData()
         self.autoSave = true
         self.saveGame()
     }
     
     func saveGame() {
-        //print("MemoryCard.saveGame()")
         if self.autoSave {
             self.autoSave = false
             self.saveContext()
@@ -39,7 +37,6 @@ class MemoryCard {
     
     func loadGame() {
         guard self.playerData == nil else { return }
-        //print("MemoryCard.loadGame()")
         
         let fetchRequestData = self.fetchRequest()
         
@@ -53,7 +50,6 @@ class MemoryCard {
     }
     
     func reset() {
-        //print("MemoryCard.reset()")
         
         let fetchRequestData = self.fetchRequest()
         

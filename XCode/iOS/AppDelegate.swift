@@ -8,6 +8,11 @@
 
 import UIKit
 
+import Fabric
+import Crashlytics
+import GameAnalytics
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if Metrics.canSendEvents() {
+            Fabric.with([Crashlytics.self, GameAnalytics.self])
+            
+            let bundleShortVersionString = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+            GameAnalytics.configureBuild(bundleShortVersionString)
+            GameAnalytics.initializeWithConfiguredGameKeyAndGameSecret()
+        }
+
         return true
     }
 
@@ -36,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        Metrics.openTheGame()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

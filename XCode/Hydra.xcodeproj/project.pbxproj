@@ -43,6 +43,9 @@
 		843222871E1EC7A200122709 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843222651E1EC7A200122709 /* Vector3.swift */; };
 		843222881E1EC7A200122709 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843222651E1EC7A200122709 /* Vector3.swift */; };
 		843222891E1EC7A200122709 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843222651E1EC7A200122709 /* Vector3.swift */; };
+		8456E90D1E20277E00345535 /* GameColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456E90C1E20277E00345535 /* GameColorsExtension.swift */; };
+		8456E90E1E20277E00345535 /* GameColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456E90C1E20277E00345535 /* GameColorsExtension.swift */; };
+		8456E90F1E20277E00345535 /* GameColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456E90C1E20277E00345535 /* GameColorsExtension.swift */; };
 		847E52BA1E1EFD4E00412D24 /* BlackSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E52B91E1EFD4E00412D24 /* BlackSpriteNode.swift */; };
 		847E52BB1E1EFD4E00412D24 /* BlackSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E52B91E1EFD4E00412D24 /* BlackSpriteNode.swift */; };
 		847E52BC1E1EFD4E00412D24 /* BlackSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E52B91E1EFD4E00412D24 /* BlackSpriteNode.swift */; };
@@ -164,6 +167,7 @@
 		843222631E1EC7A200122709 /* SKTEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKTEffects.swift; path = ../../SKTUtils/SKTUtils/SKTEffects.swift; sourceTree = SOURCE_ROOT; };
 		843222641E1EC7A200122709 /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKTTimingFunctions.swift; path = ../../SKTUtils/SKTUtils/SKTTimingFunctions.swift; sourceTree = SOURCE_ROOT; };
 		843222651E1EC7A200122709 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector3.swift; path = ../../SKTUtils/SKTUtils/Vector3.swift; sourceTree = SOURCE_ROOT; };
+		8456E90C1E20277E00345535 /* GameColorsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColorsExtension.swift; sourceTree = "<group>"; };
 		847E52B91E1EFD4E00412D24 /* BlackSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackSpriteNode.swift; sourceTree = "<group>"; };
 		849C3A171E1EB2BD0092225E /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		849C3A181E1EB2BD0092225E /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -283,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				84F364381E1EF813000ECC8B /* CustomBox.swift */,
+				8456E90C1E20277E00345535 /* GameColorsExtension.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -618,6 +623,7 @@
 				849C3A211E1EB2BD0092225E /* Button.swift in Sources */,
 				849C3A2D1E1EB2BD0092225E /* GameScene.swift in Sources */,
 				843222691E1EC7A200122709 /* CGPoint+Extensions.swift in Sources */,
+				8456E90D1E20277E00345535 /* GameColorsExtension.swift in Sources */,
 				843222751E1EC7A200122709 /* SKAction+SpecialEffects.swift in Sources */,
 				843222811E1EC7A200122709 /* SKTEffects.swift in Sources */,
 				84AC1D6A1E1FFDE500305DD6 /* PlayerData.swift in Sources */,
@@ -662,6 +668,7 @@
 				849C3A221E1EB2BD0092225E /* Button.swift in Sources */,
 				849C3A2E1E1EB2BD0092225E /* GameScene.swift in Sources */,
 				8432226A1E1EC7A200122709 /* CGPoint+Extensions.swift in Sources */,
+				8456E90E1E20277E00345535 /* GameColorsExtension.swift in Sources */,
 				843222761E1EC7A200122709 /* SKAction+SpecialEffects.swift in Sources */,
 				843222821E1EC7A200122709 /* SKTEffects.swift in Sources */,
 				84AC1D6B1E1FFDE500305DD6 /* PlayerData.swift in Sources */,
@@ -697,6 +704,7 @@
 				849C3A231E1EB2BD0092225E /* Button.swift in Sources */,
 				849C3A2F1E1EB2BD0092225E /* GameScene.swift in Sources */,
 				8432226B1E1EC7A200122709 /* CGPoint+Extensions.swift in Sources */,
+				8456E90F1E20277E00345535 /* GameColorsExtension.swift in Sources */,
 				843222771E1EC7A200122709 /* SKAction+SpecialEffects.swift in Sources */,
 				843222831E1EC7A200122709 /* SKTEffects.swift in Sources */,
 				84AC1D6C1E1FFDE500305DD6 /* PlayerData.swift in Sources */,

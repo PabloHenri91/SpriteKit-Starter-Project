@@ -29,11 +29,13 @@ class GameScene: SKScene {
     static var defaultTransition = SKTransition.crossFade(withDuration: 0.25)
     static var defaultFilteringMode: SKTextureFilteringMode = .linear
     
-    static var defaultSize = CGSize(width: 375, height: 667) // iPhone 6
+    static var defaultSize = CGSize(width: 375, height: 667) // iPhone 6 Portrait
     static var viewBoundsSize = CGSize.zero
     static var sketchSize = CGSize.zero
     static var currentSize = CGSize.zero
     static var translate = CGVector.zero
+    
+    let blackSpriteNode: BlackSpriteNode
     
     override init(size: CGSize = defaultSize) {
         
@@ -42,9 +44,14 @@ class GameScene: SKScene {
         GameScene.sketchSize = size
         GameScene.updateSize()
         
+        self.blackSpriteNode = BlackSpriteNode()
+        
         super.init(size: GameScene.currentSize)
         self.anchorPoint = CGPoint(x: 0, y: 1)
         self.backgroundColor = GameColors.background
+        
+        self.addChild(self.blackSpriteNode)
+        self.blackSpriteNode.isHidden = true
         
         GameScene.lastInstance = self
     }

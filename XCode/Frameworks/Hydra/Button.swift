@@ -10,9 +10,20 @@ import SpriteKit
 
 class Button: Control {
     
+    var text: String {
+        get {
+            return self.label.text
+        }
+        set {
+            self.label.text = newValue
+        }
+    }
+    
+    private var label: Label!
+    
     var touchUpEvent: () -> Void
     
-    override init(imageNamed name: String, x: CGFloat, y: CGFloat,
+    init(imageNamed name: String, text: String = "", x: CGFloat, y: CGFloat,
                   horizontalAlignment: horizontalAlignment = .left,
                   verticalAlignment: verticalAlignment = .top) {
         
@@ -21,6 +32,9 @@ class Button: Control {
         }
         
         super.init(imageNamed: name, x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
+        
+        self.label = Label(text: text, x: self.size.width/2, y: self.size.height/2)
+        self.addChild(self.label)
         
         self.isUserInteractionEnabled = true
     }
@@ -54,7 +68,7 @@ class Button: Control {
         
         self.run(SKAction.group([
             SKAction.scale(to: 1.0 , duration: duration),
-            SKAction.move(to: self.screenPosition(), duration: duration)
+            SKAction.move(to: self.positionWith(sketchPosition: self.sketchPosition), duration: duration)
             ]))
         
         if let parent = self.parent {

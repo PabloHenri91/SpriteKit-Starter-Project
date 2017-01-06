@@ -19,8 +19,15 @@ class LoadScene: GameScene {
     var nextState: state = .load
     
     init() {
+        
         GameScene.defaultSize = CGSize(width: 667, height: 375)
-        super.init(size: GameScene.defaultSize)
+        GameScene.defaultFilteringMode = .nearest
+        
+        Label.defaultColor = GameColors.fontWhite
+        
+        super.init()
+        
+        self.backgroundColor = GameColors.loadSceneBackground
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,9 +38,11 @@ class LoadScene: GameScene {
         super.load()
         
         #if DEBUG
-            //self.view?.showsFPS = true
+            self.view?.showsFPS = true
             //self.view?.showsNodeCount = true
             //self.view?.showsPhysics = true
+            
+            //MemoryCard.sharedInstance.reset()
         #endif
         
         self.addChild(Control(imageNamed: "launchScreen", x: 0, y: 0, horizontalAlignment: .center, verticalAlignment: .center))

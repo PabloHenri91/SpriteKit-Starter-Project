@@ -10,6 +10,8 @@ import SpriteKit
 
 class Label: Control {
     
+    static var defaultColor = GameColors.fontBlack
+    
     enum fontName: String {
         case verdana = "Verdana"
         case kenPixel = "KenPixel Regular"
@@ -38,12 +40,12 @@ class Label: Control {
     private var labelNode: SKLabelNode
     private var shadowLabelNodes: [SKLabelNode]
     
-    init(horizontalAlignmentMode: SKLabelHorizontalAlignmentMode = .center,
+    init(text: String,
+         horizontalAlignmentMode: SKLabelHorizontalAlignmentMode = .center,
          verticalAlignmentMode: SKLabelVerticalAlignmentMode = .center,
          fontName: fontName = fontName.kenPixel,
-         text: String,
          fontSize: fontSize = .fontSize16,
-         fontColor: SKColor = GameColors.fontBlack,
+         fontColor: SKColor = Label.defaultColor,
          x: CGFloat = 0, y: CGFloat = 0,
          horizontalAlignment: horizontalAlignment = .left,
          verticalAlignment: verticalAlignment = .top

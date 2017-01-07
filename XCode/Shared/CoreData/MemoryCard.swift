@@ -90,12 +90,42 @@ class MemoryCard {
     }()
     
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+        
+        let fileManager = FileManager.default
+        
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         
         let productName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
-        let url = self.applicationDocumentsDirectory.appendingPathComponent("\(productName).sqlite")
         
-        try! coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+        #if DEBUG
+            let fileName = "\(productName)Debug.sqlite"
+        #else
+            let fileName = "\(productName).sqlite"
+        #endif
+        
+        let url: URL = {
+            if let url = fileManager.url(forUbiquityContainerIdentifier: "iCloud\(Bundle.main.bundleIdentifier!)") {
+                return url.appendingPathComponent(fileName)
+            } else {
+                return self.applicationDocumentsDirectory.appendingPathComponent(fileName)
+            }
+        }()
+        
+        do {
+            
+            let options = [
+                NSPersistentStoreRemoveUbiquitousMetadataOption: true,
+                NSMigratePersistentStoresAutomaticallyOption: true,
+                NSInferMappingModelAutomaticallyOption: true
+            ]
+            
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
+        } catch let error as NSError {
+            #if DEBUG
+                try! fileManager.removeItem(at: url)
+                exit(1)
+            #endif
+        }
         
         return coordinator
     }()

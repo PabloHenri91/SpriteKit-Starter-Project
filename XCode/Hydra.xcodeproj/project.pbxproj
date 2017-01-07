@@ -629,16 +629,16 @@
 /* Begin PBXShellScriptBuildPhase section */
 		842DD3E41E20297400FCABFB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "./Frameworks/Fabric.framework/run 3e7f6f013ee0dc3a5f45f5e4db357d194356643b 850680baf12e910f1f651af0e6d7a8d27fc45be1905cbf7f243b802cce84c15e";
+			shellScript = "./Frameworks/Fabric.framework/run 3e7f6f013ee0dc3a5f45f5e4db357d194356643b 850680baf12e910f1f651af0e6d7a8d27fc45be1905cbf7f243b802cce84c15e\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

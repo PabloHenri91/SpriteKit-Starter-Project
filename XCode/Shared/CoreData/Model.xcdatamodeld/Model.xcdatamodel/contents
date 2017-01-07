@@ -3,9 +3,11 @@
     <entity name="PlayerData" representedClassName="PlayerData" syncable="YES" codeGenerationType="class">
         <attribute name="modelVersion" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="points" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="premiumPoints" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <fetchRequest name="FetchRequest" entity="PlayerData"/>
     <elements>
-        <element name="PlayerData" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="PlayerData" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

@@ -176,6 +176,7 @@
 		843222641E1EC7A200122709 /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKTTimingFunctions.swift; path = ../../SKTUtils/SKTUtils/SKTTimingFunctions.swift; sourceTree = SOURCE_ROOT; };
 		843222651E1EC7A200122709 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector3.swift; path = ../../SKTUtils/SKTUtils/Vector3.swift; sourceTree = SOURCE_ROOT; };
 		8456E90C1E20277E00345535 /* GameColorsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColorsExtension.swift; sourceTree = "<group>"; };
+		8456F1EC1E20720D00BFE39A /* Hydra.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hydra.entitlements; sourceTree = "<group>"; };
 		847E52B91E1EFD4E00412D24 /* BlackSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackSpriteNode.swift; sourceTree = "<group>"; };
 		849C3A171E1EB2BD0092225E /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		849C3A181E1EB2BD0092225E /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -376,6 +377,7 @@
 		84E06AFA1E1EAEF100AD72F0 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				8456F1EC1E20720D00BFE39A /* Hydra.entitlements */,
 				84E06B051E1EAEF100AD72F0 /* Info.plist */,
 				84E06AFB1E1EAEF100AD72F0 /* AppDelegate.swift */,
 				84E06AFD1E1EAEF100AD72F0 /* GameViewController.swift */,
@@ -455,6 +457,7 @@
 			buildPhases = (
 				84E06B061E1EAEF100AD72F0 /* Resources */,
 				84E06B4F1E1EAEF100AD72F0 /* Embed App Extensions */,
+				8456F1ED1E20723B00BFE39A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -531,6 +534,11 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = JZ3J7RVLD7;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					84E06B071E1EAEF100AD72F0 = {
 						CreatedOnToolsVersion = 8.2;
@@ -639,6 +647,19 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "./Frameworks/Fabric.framework/run 3e7f6f013ee0dc3a5f45f5e4db357d194356643b 850680baf12e910f1f651af0e6d7a8d27fc45be1905cbf7f243b802cce84c15e\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		8456F1ED1E20723B00BFE39A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -974,6 +995,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOS/Hydra.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JZ3J7RVLD7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -994,6 +1016,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOS/Hydra.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JZ3J7RVLD7;
 				FRAMEWORK_SEARCH_PATHS = (

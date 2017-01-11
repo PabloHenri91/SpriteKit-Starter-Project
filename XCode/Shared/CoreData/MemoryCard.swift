@@ -114,7 +114,6 @@ class MemoryCard {
         do {
             
             let options = [
-                NSPersistentStoreRemoveUbiquitousMetadataOption: true,
                 NSMigratePersistentStoresAutomaticallyOption: true,
                 NSInferMappingModelAutomaticallyOption: true
             ]

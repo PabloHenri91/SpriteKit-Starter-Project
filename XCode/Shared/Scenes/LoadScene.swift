@@ -45,7 +45,7 @@ class LoadScene: GameScene {
             //MemoryCard.sharedInstance.reset()
         #endif
         
-        self.addChild(Control(imageNamed: "launchScreen", x: 0, y: 0, horizontalAlignment: .center, verticalAlignment: .center))
+        self.addChild(Control(imageNamed: "launchScreenLandscape", x: 0, y: 0, horizontalAlignment: .center, verticalAlignment: .center))
     }
     
     override func update(_ currentTime: TimeInterval) {

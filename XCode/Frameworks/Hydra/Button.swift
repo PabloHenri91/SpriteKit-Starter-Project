@@ -19,7 +19,7 @@ class Button: Control {
         }
     }
     
-    private var label: Label!
+    var label: Label!
     
     var touchUpEvent: () -> Void
     

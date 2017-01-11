@@ -37,13 +37,22 @@ class Label: Control {
         }
     }
     
+    var fontSize: fontSize {
+        get {
+            return fontSize(rawValue: self.labelNode.fontSize)!
+        }
+        set(newValue) {
+            self.labelNode.fontSize = newValue.rawValue
+        }
+    }
+    
     private var labelNode: SKLabelNode
     private var shadowLabelNodes: [SKLabelNode]
     
     init(text: String,
          horizontalAlignmentMode: SKLabelHorizontalAlignmentMode = .center,
          verticalAlignmentMode: SKLabelVerticalAlignmentMode = .center,
-         fontName: fontName = fontName.kenPixel,
+         fontName: fontName = fontName.verdana,
          fontSize: fontSize = .fontSize16,
          fontColor: SKColor = Label.defaultColor,
          x: CGFloat = 0, y: CGFloat = 0,

@@ -26,6 +26,8 @@ class CustomBox: Box {
         }
         
         self.addChild(button)
+        
+        self.addChild(MultiLineLabel(text: "Lorem ipsum dolor sit amet.", maxWidth: self.size.width - 16, x: 8, y: 8))
     }
     
     required init?(coder aDecoder: NSCoder) {

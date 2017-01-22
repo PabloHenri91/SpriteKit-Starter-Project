@@ -26,7 +26,7 @@ class GameScene: SKScene {
     
     static var currentTime: TimeInterval = 0
     
-    static var defaultTransition = SKTransition.crossFade(withDuration: 0.25)
+    static var defaultTransition = SKTransition.crossFade(withDuration: 1)
     static var defaultFilteringMode: SKTextureFilteringMode = .linear
     
     static var defaultSize = CGSize(width: 375, height: 667) // iPhone 6 Portrait

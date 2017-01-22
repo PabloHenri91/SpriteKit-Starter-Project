@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8425F6051E317D9200A8E1B5 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425F6041E317D9200A8E1B5 /* ServerManager.swift */; };
+		8425F6061E317D9200A8E1B5 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425F6041E317D9200A8E1B5 /* ServerManager.swift */; };
+		8425F6071E317D9200A8E1B5 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425F6041E317D9200A8E1B5 /* ServerManager.swift */; };
 		842DD3E71E202A4200FCABFB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842DD3E51E202A4200FCABFB /* Crashlytics.framework */; };
 		842DD3EA1E202A4200FCABFB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842DD3E61E202A4200FCABFB /* Fabric.framework */; };
 		842DD3EE1E202D0B00FCABFB /* GameAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842DD3ED1E202D0B00FCABFB /* GameAnalytics.framework */; };
@@ -50,6 +53,9 @@
 		8456E90D1E20277E00345535 /* GameColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456E90C1E20277E00345535 /* GameColorsExtension.swift */; };
 		8456E90E1E20277E00345535 /* GameColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456E90C1E20277E00345535 /* GameColorsExtension.swift */; };
 		8456E90F1E20277E00345535 /* GameColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456E90C1E20277E00345535 /* GameColorsExtension.swift */; };
+		846F28501E2963120040DB51 /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F284F1E2963120040DB51 /* MultiLineLabel.swift */; };
+		846F28511E2963120040DB51 /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F284F1E2963120040DB51 /* MultiLineLabel.swift */; };
+		846F28521E2963120040DB51 /* MultiLineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F284F1E2963120040DB51 /* MultiLineLabel.swift */; };
 		847E52BA1E1EFD4E00412D24 /* BlackSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E52B91E1EFD4E00412D24 /* BlackSpriteNode.swift */; };
 		847E52BB1E1EFD4E00412D24 /* BlackSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E52B91E1EFD4E00412D24 /* BlackSpriteNode.swift */; };
 		847E52BC1E1EFD4E00412D24 /* BlackSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E52B91E1EFD4E00412D24 /* BlackSpriteNode.swift */; };
@@ -159,6 +165,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8425F6041E317D9200A8E1B5 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		842DD3E51E202A4200FCABFB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		842DD3E61E202A4200FCABFB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		842DD3ED1E202D0B00FCABFB /* GameAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GameAnalytics.framework; sourceTree = "<group>"; };
@@ -177,6 +184,7 @@
 		843222651E1EC7A200122709 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector3.swift; path = ../../SKTUtils/SKTUtils/Vector3.swift; sourceTree = SOURCE_ROOT; };
 		8456E90C1E20277E00345535 /* GameColorsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColorsExtension.swift; sourceTree = "<group>"; };
 		8456F1EC1E20720D00BFE39A /* Hydra.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hydra.entitlements; sourceTree = "<group>"; };
+		846F284F1E2963120040DB51 /* MultiLineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineLabel.swift; sourceTree = "<group>"; };
 		847E52B91E1EFD4E00412D24 /* BlackSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackSpriteNode.swift; sourceTree = "<group>"; };
 		849C3A171E1EB2BD0092225E /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		849C3A181E1EB2BD0092225E /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -286,6 +294,8 @@
 				849C3A1B1E1EB2BD0092225E /* GameColors.swift */,
 				849C3A1C1E1EB2BD0092225E /* GameScene.swift */,
 				849C3A1D1E1EB2BD0092225E /* Label.swift */,
+				846F284F1E2963120040DB51 /* MultiLineLabel.swift */,
+				8425F6041E317D9200A8E1B5 /* ServerManager.swift */,
 			);
 			path = Hydra;
 			sourceTree = "<group>";
@@ -668,6 +678,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8425F6051E317D9200A8E1B5 /* ServerManager.swift in Sources */,
 				849C3A3C1E1EBB1A0092225E /* MainMenuScene.swift in Sources */,
 				8432227E1E1EC7A200122709 /* SKTAudio.swift in Sources */,
 				843222841E1EC7A200122709 /* SKTTimingFunctions.swift in Sources */,
@@ -683,6 +694,7 @@
 				84AC1D6A1E1FFDE500305DD6 /* PlayerData.swift in Sources */,
 				849C3A1E1E1EB2BD0092225E /* Box.swift in Sources */,
 				849C3A381E1EB37D0092225E /* LoadScene.swift in Sources */,
+				846F28501E2963120040DB51 /* MultiLineLabel.swift in Sources */,
 				84E06AFE1E1EAEF100AD72F0 /* GameViewController.swift in Sources */,
 				8432226C1E1EC7A200122709 /* CGVector+Extensions.swift in Sources */,
 				8432226F1E1EC7A200122709 /* Int+Extensions.swift in Sources */,
@@ -738,7 +750,9 @@
 				843222791E1EC7A200122709 /* SKColor+Extensions.swift in Sources */,
 				849C3A251E1EB2BD0092225E /* Control.swift in Sources */,
 				849C3A311E1EB2BD0092225E /* Label.swift in Sources */,
+				846F28511E2963120040DB51 /* MultiLineLabel.swift in Sources */,
 				843222671E1EC7A200122709 /* CGFloat+Extensions.swift in Sources */,
+				8425F6061E317D9200A8E1B5 /* ServerManager.swift in Sources */,
 				847E52BB1E1EFD4E00412D24 /* BlackSpriteNode.swift in Sources */,
 				843222881E1EC7A200122709 /* Vector3.swift in Sources */,
 				84F3643A1E1EF813000ECC8B /* CustomBox.swift in Sources */,
@@ -774,7 +788,9 @@
 				8432227A1E1EC7A200122709 /* SKColor+Extensions.swift in Sources */,
 				849C3A261E1EB2BD0092225E /* Control.swift in Sources */,
 				849C3A321E1EB2BD0092225E /* Label.swift in Sources */,
+				846F28521E2963120040DB51 /* MultiLineLabel.swift in Sources */,
 				843222681E1EC7A200122709 /* CGFloat+Extensions.swift in Sources */,
+				8425F6071E317D9200A8E1B5 /* ServerManager.swift in Sources */,
 				847E52BC1E1EFD4E00412D24 /* BlackSpriteNode.swift in Sources */,
 				843222891E1EC7A200122709 /* Vector3.swift in Sources */,
 				84F3643B1E1EF813000ECC8B /* CustomBox.swift in Sources */,
@@ -881,7 +897,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -923,7 +939,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
@@ -1001,6 +1017,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/SocketIO",
+					"$(PROJECT_DIR)/Frameworks/SocketIO/iOS",
 				);
 				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1022,6 +1040,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/SocketIO",
+					"$(PROJECT_DIR)/Frameworks/SocketIO/iOS",
 				);
 				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1043,6 +1063,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/SocketIO/tvOS",
 				);
 				INFOPLIST_FILE = tvOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1062,6 +1083,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/SocketIO/tvOS",
 				);
 				INFOPLIST_FILE = tvOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1083,6 +1105,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/SocketIO/OSX",
 				);
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -1103,6 +1126,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/SocketIO/OSX",
 				);
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

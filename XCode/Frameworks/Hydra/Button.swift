@@ -21,6 +21,8 @@ class Button: Control {
     
     var label: Label!
     
+    var icon: SKSpriteNode?
+    
     var touchUpEvent: () -> Void
     
     init(imageNamed name: String, text: String = "", x: CGFloat, y: CGFloat,
@@ -41,6 +43,31 @@ class Button: Control {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setColor(color: SKColor) {
+        self.color = color
+        self.colorBlendFactor = 1
+        self.icon?.color = color
+        self.icon?.colorBlendFactor = 1
+    }
+    
+    func setIcon(imageNamed name: String) {
+        
+        let texture = SKTexture(imageNamed: name)
+        texture.filteringMode = GameScene.defaultFilteringMode
+        
+        let icon = SKSpriteNode(texture: texture, color: self.color, size: texture.size())
+        icon.color = self.color
+        icon.colorBlendFactor = 1
+        
+        icon.setScaleToFit(size: self.size)
+        
+        icon.position = CGPoint(x: self.size.width/2, y: -self.size.height/2)
+        
+        self.addChild(icon)
+        self.icon?.removeFromParent()
+        self.icon = icon
     }
     
     func touchDown(touch: UITouch) {

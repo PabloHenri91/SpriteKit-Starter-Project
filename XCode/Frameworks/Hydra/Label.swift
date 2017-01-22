@@ -11,9 +11,10 @@ import SpriteKit
 class Label: Control {
     
     static var defaultColor = GameColors.fontBlack
+    static var defaultFontName = fontName.default
     
     enum fontName: String {
-        case verdana = "Verdana"
+        case `default` = "Verdana"
         case kenPixel = "KenPixel Regular"
     }
     
@@ -52,7 +53,7 @@ class Label: Control {
     init(text: String,
          horizontalAlignmentMode: SKLabelHorizontalAlignmentMode = .center,
          verticalAlignmentMode: SKLabelVerticalAlignmentMode = .center,
-         fontName: fontName = fontName.verdana,
+         fontName: fontName = Label.defaultFontName,
          fontSize: fontSize = .fontSize16,
          fontColor: SKColor = Label.defaultColor,
          x: CGFloat = 0, y: CGFloat = 0,

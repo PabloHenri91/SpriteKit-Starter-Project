@@ -107,11 +107,28 @@ class Control: SKSpriteNode {
         Control.set.remove(self)
     }
     
-    
     static func resetPosition() {
         for control in Control.set {
             control.resetPosition()
         }
+    }
+}
+
+extension SKSpriteNode {
+    
+    func setScaleToFit(width: CGFloat, height: CGFloat) {
+        self.setScale(1)
+        let xScale = width / self.size.width
+        let yScale = height / self.size.height
+        self.setScale(min(xScale, yScale))
+        
+        if self.xScale > 1 {
+            self.setScale(1)
+        }
+    }
+    
+    func setScaleToFit(size: CGSize) {
+        self.setScaleToFit(width: size.width, height: size.height)
     }
 }
 

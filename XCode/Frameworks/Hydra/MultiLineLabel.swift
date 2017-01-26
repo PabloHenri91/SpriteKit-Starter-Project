@@ -20,7 +20,7 @@ class MultiLineLabel: Control {
          x: CGFloat = 0, y: CGFloat = 0,
          horizontalAlignment: horizontalAlignment = .left,
          verticalAlignment: verticalAlignment = .top
-        ){
+        ) {
     
         let verticalAlignmentMode: SKLabelVerticalAlignmentMode = .baseline
         

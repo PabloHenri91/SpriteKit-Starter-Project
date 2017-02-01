@@ -45,11 +45,11 @@ class Button: Control {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setColor(color: SKColor) {
-        self.color = color
-        self.colorBlendFactor = 1
+    override func set(color: SKColor, blendMode: SKBlendMode = .alpha) {
+        super.set(color: color, blendMode: blendMode)
         self.icon?.color = color
         self.icon?.colorBlendFactor = 1
+        self.icon?.blendMode = blendMode
     }
     
     func setIcon(imageNamed name: String) {
@@ -58,8 +58,7 @@ class Button: Control {
         texture.filteringMode = GameScene.defaultFilteringMode
         
         let icon = SKSpriteNode(texture: texture, color: self.color, size: texture.size())
-        icon.color = self.color
-        icon.colorBlendFactor = 1
+        self.set(color: self.color, blendMode: self.blendMode)
         
         icon.setScaleToFit(size: self.size)
         

@@ -30,10 +30,9 @@ class Label: Control {
             return self.labelNode.text ?? ""
         }
         set(newValue) {
-            let text = newValue.translation()
-            self.labelNode.text = text
+            self.labelNode.text = newValue
             for labelNode in self.shadowLabelNodes {
-                labelNode.text = text
+                labelNode.text = newValue
             }
         }
     }

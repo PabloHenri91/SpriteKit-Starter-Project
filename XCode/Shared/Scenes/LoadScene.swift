@@ -20,6 +20,8 @@ class LoadScene: GameScene {
     
     init() {
         
+        SKTDefaultTimingFunction = SKTTimingFunctionElasticEaseOut
+        
         GameScene.defaultSize = CGSize(width: 667, height: 375)
         GameScene.defaultFilteringMode = .nearest
         

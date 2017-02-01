@@ -24,7 +24,6 @@ class MultiLineLabel: Control {
     
         let verticalAlignmentMode: SKLabelVerticalAlignmentMode = .baseline
         
-        let text = text.translation()
         let words = text.components(separatedBy: " ")
         var labels = [Label]()
         var wordsIterator = words.makeIterator()

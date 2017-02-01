@@ -165,3 +165,18 @@ extension UITouch {
         }
     }
 }
+
+extension SKNode {
+    
+    #if DEBUG
+    
+    func printTree(count: Int = 0, name: String = "root") {
+        for node in self.children {
+            let className = type(of: node).description().components(separatedBy: ".").last!
+            print("\(count + 1) \(name) \(className) \(node.zPosition)")
+            node.printTree(count: count + 1, name: "\(name) \(className)")
+        }
+    }
+    
+    #endif
+}

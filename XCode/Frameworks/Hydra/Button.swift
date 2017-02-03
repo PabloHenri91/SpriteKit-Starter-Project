@@ -12,14 +12,14 @@ class Button: Control {
     
     var text: String {
         get {
-            return self.label.text
+            return self.label?.text ?? ""
         }
         set {
-            self.label.text = newValue
+            self.label?.text = newValue
         }
     }
     
-    var label: Label!
+    var label: Label?
     
     var icon: SKSpriteNode?
     
@@ -35,14 +35,22 @@ class Button: Control {
         
         super.init(imageNamed: name, x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
         
-        self.label = Label(text: text, x: self.size.width/2, y: self.size.height/2)
-        self.addChild(self.label)
+        if text != "" {
+            self.set(label: Label(text: text))
+        }
         
         self.isUserInteractionEnabled = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func set(label: Label) {
+        label.sketchPosition = label.sketchPosition +  CGPoint(x: self.size.width/2, y: self.size.height/2)
+        label.resetPosition()
+        self.addChild(label)
+        self.label = label
     }
     
     override func set(color: SKColor, blendMode: SKBlendMode = .alpha) {

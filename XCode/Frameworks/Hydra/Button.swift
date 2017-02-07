@@ -23,15 +23,11 @@ class Button: Control {
     
     var icon: SKSpriteNode?
     
-    var touchUpEvent: () -> Void
+    var touchUpEvent: (() -> Void)?
     
     init(imageNamed name: String, text: String = "", x: CGFloat, y: CGFloat,
                   horizontalAlignment: horizontalAlignment = .left,
                   verticalAlignment: verticalAlignment = .top) {
-        
-        self.touchUpEvent = {
-            print("touchUp " + name)
-        }
         
         super.init(imageNamed: name, x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
         
@@ -107,7 +103,7 @@ class Button: Control {
         
         if let parent = self.parent {
             if self.contains(touch.location(in: parent)) {
-                self.touchUpEvent()
+                self.touchUpEvent?()
             }
         }
     }

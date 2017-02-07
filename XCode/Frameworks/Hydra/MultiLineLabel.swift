@@ -46,7 +46,7 @@ class MultiLineLabel: Control {
             labels.append(label)
         }
         
-        super.init(x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, color: SKColor.clear)
+        super.init(x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, color: .clear)
         
         var y: CGFloat = fontSize.rawValue
         for label in labels {

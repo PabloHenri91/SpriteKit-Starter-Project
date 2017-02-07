@@ -32,7 +32,7 @@ class ScrollNode: Control {
         
         self.scrollDirection = scrollDirection
         
-        super.init(x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, color: SKColor.clear)
+        super.init(x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, color: .clear)
         
         var x: CGFloat = 0
         var y: CGFloat = 0
@@ -54,24 +54,87 @@ class ScrollNode: Control {
         }
         
         self.size = self.calculateAccumulatedFrame().size
+        
+        self.isUserInteractionEnabled = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func touchMoved(touch: UITouch) {
+        self.touchMoved(touchDelta: touch.delta)
+    }
+    
     func touchMoved(touchDelta: CGPoint) {
-        for cell in self.cells {
-            switch self.scrollDirection {
-            case .horizontal:
-                cell.sketchPosition.x = cell.sketchPosition.x + (touchDelta.x * 2)
-                break
-            case .vertical:
-                cell.sketchPosition.y = cell.sketchPosition.y + (touchDelta.y * 2)
-                break
+        
+        guard let cellsFirst = self.cells.first else { return }
+        guard let cellsLast = self.cells.last else { return }
+        
+        var x = touchDelta.x * 2 * -1
+        var y = touchDelta.y * 2
+        
+        switch self.scrollDirection {
+        case .horizontal:
+            
+            if abs(x) > 1 {
+                
+                if x > 0 {
+                    if cellsFirst.sketchPosition.x + x > 0 {
+                        x = -cellsFirst.sketchPosition.x
+                    }
+                } else {
+                    if cellsLast.sketchPosition.x + x < 0 {
+                        x = -cellsLast.sketchPosition.x
+                    }
+                }
+                
+                for cell in self.cells {
+                    cell.sketchPosition.x = cell.sketchPosition.x + x
+                    cell.resetPosition()
+                }
             }
             
-            cell.resetPosition()
+            break
+        case .vertical:
+            
+            if abs(y) > 1 {
+                
+                if y > 0 {
+                    if cellsFirst.sketchPosition.y + y > 0 {
+                        y = -cellsFirst.sketchPosition.y
+                    }
+                } else {
+                    if cellsLast.sketchPosition.y + y < 0 {
+                        y = -cellsLast.sketchPosition.y
+                    }
+                }
+                
+                for cell in self.cells {
+                    cell.sketchPosition.y = cell.sketchPosition.y + y
+                    cell.resetPosition()
+                }
+            }
+            break
         }
     }
+    
+    
+    
+    #if os(iOS) || os(tvOS)
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    for t in touches { self.touchMoved(touch: t) }
+    }
+    
+    #endif
+    
+    #if os(OSX)
+    
+    override func mouseDragged(with event: UITouch) {
+        self.touchMoved(touch: event)
+        
+    }
+    
+    #endif
 }

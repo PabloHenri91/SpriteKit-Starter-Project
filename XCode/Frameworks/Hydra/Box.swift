@@ -18,6 +18,29 @@ class Box: Control {
                    horizontalAlignment: horizontalAlignment,
                    verticalAlignment: verticalAlignment)
         
+        self.alignCenter()
+        
+        self.pop()
+    }
+    
+    override init(x: CGFloat? = nil, y: CGFloat? = nil,
+         horizontalAlignment: horizontalAlignment = .center,
+         verticalAlignment: verticalAlignment = .center,
+         color: SKColor = .clear, size: CGSize = CGSize(width: 1, height: 1)) {
+        
+        
+        super.init(x: x ?? 0, y: y ?? 0, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, color: color, size: size)
+        
+        self.alignCenter()
+        
+        self.pop()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func alignCenter(x: CGFloat? = nil, y: CGFloat? = nil) {
         if x == nil {
             self.sketchPosition.x = GameScene.sketchSize.width/2 - self.size.width/2
         }
@@ -25,12 +48,6 @@ class Box: Control {
             self.sketchPosition.y = GameScene.sketchSize.height/2 - self.size.height/2
         }
         self.resetPosition()
-        
-        self.pop()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func pop() {

@@ -33,7 +33,7 @@ class Control: SKSpriteNode {
     init(x: CGFloat, y: CGFloat,
          horizontalAlignment: horizontalAlignment = .left,
          verticalAlignment: verticalAlignment = .top,
-         color: SKColor = SKColor.clear, size: CGSize = CGSize(width: 1, height: 1)) {
+         color: SKColor = .clear, size: CGSize = CGSize(width: 1, height: 1)) {
         
         super.init(texture: nil, color: color, size: size)
         
@@ -47,7 +47,7 @@ class Control: SKSpriteNode {
         let texture = SKTexture(imageNamed: name)
         texture.filteringMode = GameScene.defaultFilteringMode
         
-        super.init(texture: texture, color: SKColor.clear, size: texture.size())
+        super.init(texture: texture, color: .clear, size: texture.size())
         
         self.load(x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
     }
@@ -135,6 +135,11 @@ extension SKSpriteNode {
         self.color = color
         self.colorBlendFactor = 1
         self.blendMode = blendMode
+    }
+    
+    override open func move(toParent parent: SKNode) {
+        super.removeFromParent()
+        parent.addChild(self)
     }
 }
 

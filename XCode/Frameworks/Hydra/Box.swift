@@ -62,9 +62,15 @@ class Box: Control {
         self.position = CGPoint(x: x, y: y)
         self.setScale(1)
         
+        let effect0 = SKTScaleEffect(node: self, duration: duration, startScale: CGPoint(x: 0.01, y: 0.01), endScale: CGPoint(x: 1, y: 1))
+        effect0.timingFunction = SKTTimingFunctionElasticEaseOut
+        
+        let effect1 = SKTMoveEffect(node: self, duration: duration, startPosition: self.position, endPosition: self.positionWith(sketchPosition: self.sketchPosition))
+        effect1.timingFunction = SKTTimingFunctionElasticEaseOut
+        
         self.run(SKAction.group([
-            SKAction.actionWithEffect(SKTScaleEffect(node: self, duration: duration, startScale: CGPoint(x: 0.01, y: 0.01), endScale: CGPoint(x: 1, y: 1))),
-            SKAction.actionWithEffect(SKTMoveEffect(node: self, duration: duration, startPosition: self.position, endPosition: self.positionWith(sketchPosition: self.sketchPosition)))
+            SKAction.actionWithEffect(effect0),
+            SKAction.actionWithEffect(effect1)
             ]))
     }
     

@@ -1,6 +1,10 @@
 # SpriteKit-Starter-Project
 This is a starter project that I use as reference when I start developing new games with SpriteKit in Swift
 
+This project uses [SKTUtils](https://github.com/raywenderlich/SKTUtils.git), so you need to clone 
+[SpriteKit-Starter-Project](https://github.com/PabloHenri91/SpriteKit-Starter-Project.git) and
+[SKTUtils](https://github.com/raywenderlich/SKTUtils.git) at the same folder for the project to run correctly.
+    
 
 GameScene and transition between Scenes
 ```

@@ -23,7 +23,18 @@ class Button: Control {
     
     var icon: SKSpriteNode?
     
-    var touchUpEvent: (() -> Void)?
+    private var touchUpEvent: Event?
+    
+    func addHandler(block: @escaping () -> Void) {
+        if self.touchUpEvent == nil  {
+            self.touchUpEvent = Event()
+        }
+        self.touchUpEvent?.add(handler: block)
+    }
+    
+    func removeAllHandlers() {
+        self.touchUpEvent = nil
+    }
     
     init(imageNamed name: String, text: String = "", x: CGFloat, y: CGFloat,
                   horizontalAlignment: horizontalAlignment = .left,
@@ -103,9 +114,14 @@ class Button: Control {
         
         if let parent = self.parent {
             if self.contains(touch.location(in: parent)) {
-                self.touchUpEvent?()
+                self.touchUpEvent?.raise()
             }
         }
+    }
+    
+    override func removeFromParent() {
+        super.removeFromParent()
+        self.removeAllHandlers()
     }
     
     #if os(iOS) || os(tvOS)

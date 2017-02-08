@@ -34,7 +34,7 @@ class MainMenuScene: GameScene {
         self.buttonBox = Button(imageNamed: "buttonBlue144x34", text: "Box", x: 262, y: 171, horizontalAlignment: .center, verticalAlignment: .center)
         self.addChild(self.buttonBox)
         
-        self.buttonBox.touchUpEvent = { [weak self] in
+        self.buttonBox.addHandler { [weak self] in
             self?.addChild(CustomBox())
         }
     }

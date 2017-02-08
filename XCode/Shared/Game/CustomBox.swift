@@ -21,7 +21,7 @@ class CustomBox: Box {
         self.zPosition = 1000000
         
         let button = Button(imageNamed: "buttonBlue144x34", text: "OK", x: 45, y: 189)
-        button.touchUpEvent = { [weak self] in
+        button.addHandler { [weak self] in
             self?.removeFromParent()
         }
         

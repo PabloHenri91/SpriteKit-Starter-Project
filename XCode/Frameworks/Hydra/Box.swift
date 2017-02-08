@@ -18,7 +18,7 @@ class Box: Control {
                    horizontalAlignment: horizontalAlignment,
                    verticalAlignment: verticalAlignment)
         
-        self.alignCenter()
+        self.alignCenter(x: x, y: y)
         
         self.pop()
     }
@@ -31,7 +31,7 @@ class Box: Control {
         
         super.init(x: x ?? 0, y: y ?? 0, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, color: color, size: size)
         
-        self.alignCenter()
+        self.alignCenter(x: x, y: y)
         
         self.pop()
     }

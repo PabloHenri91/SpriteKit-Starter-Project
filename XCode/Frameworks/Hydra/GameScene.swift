@@ -62,8 +62,8 @@ class GameScene: SKScene {
     
     static func updateSize() {
         
-        let xScale = viewBoundsSize.width / sketchSize.width
-        let yScale = viewBoundsSize.height / sketchSize.height
+        let xScale = self.viewBoundsSize.width / sketchSize.width
+        let yScale = self.viewBoundsSize.height / sketchSize.height
         let scale = min(xScale, yScale)
         
         self.currentSize.width = self.viewBoundsSize.width / scale

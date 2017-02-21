@@ -69,8 +69,7 @@ class Button: Control {
     
     func setIcon(imageNamed name: String) {
         
-        let texture = SKTexture(imageNamed: name)
-        texture.filteringMode = GameScene.defaultFilteringMode
+        let texture = SKTexture(imageNamed: name, filteringMode: GameScene.defaultFilteringMode)
         
         let icon = SKSpriteNode(texture: texture, color: self.color, size: texture.size())
         self.set(color: self.color, blendMode: self.blendMode)

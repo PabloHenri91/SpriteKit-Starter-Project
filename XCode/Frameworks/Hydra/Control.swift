@@ -44,8 +44,7 @@ class Control: SKSpriteNode {
          horizontalAlignment: horizontalAlignment = .left,
          verticalAlignment: verticalAlignment = .top) {
         
-        let texture = SKTexture(imageNamed: name)
-        texture.filteringMode = GameScene.defaultFilteringMode
+        let texture = SKTexture(imageNamed: name, filteringMode: GameScene.defaultFilteringMode)
         
         super.init(texture: texture, color: .clear, size: texture.size())
         
@@ -116,6 +115,11 @@ class Control: SKSpriteNode {
 
 extension SKSpriteNode {
     
+    convenience init(imageNamed name: String, filteringMode: SKTextureFilteringMode = GameScene.defaultFilteringMode) {
+        self.init(imageNamed: name)
+        self.texture?.filteringMode = filteringMode
+    }
+    
     func setScaleToFit(width: CGFloat, height: CGFloat) {
         self.setScale(1)
         let xScale = width / self.size.width
@@ -140,6 +144,13 @@ extension SKSpriteNode {
     override open func move(toParent parent: SKNode) {
         super.removeFromParent()
         parent.addChild(self)
+    }
+}
+
+extension SKTexture {
+    convenience init(imageNamed name: String, filteringMode: SKTextureFilteringMode = GameScene.defaultFilteringMode) {
+        self.init(imageNamed: name)
+        self.filteringMode = filteringMode
     }
 }
 

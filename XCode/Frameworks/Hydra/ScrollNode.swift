@@ -22,6 +22,9 @@ class ScrollNode: Control {
     
     var scrollDirection: scrollDirection
     
+    private var cellIndex: Int
+    private var spacing: CGFloat
+    
     init(cells: [Control] = [], spacing: CGFloat = 8, scrollDirection: scrollDirection = .vertical,
          x: CGFloat, y: CGFloat,
          horizontalAlignment: horizontalAlignment = .left,
@@ -32,6 +35,9 @@ class ScrollNode: Control {
         
         self.scrollDirection = scrollDirection
         
+        self.cellIndex = 0
+        self.spacing = spacing
+        
         super.init(x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, color: .clear)
         
         var x: CGFloat = 0
@@ -40,17 +46,17 @@ class ScrollNode: Control {
         for cell in cells {
             switch scrollDirection {
             case .horizontal:
-                cell.sketchPosition.x = x
+                cell.position.x = x
                 x = x + cell.size.width + spacing
                 break
             case .vertical:
-                cell.sketchPosition.y = y
-                y = y + cell.size.height + spacing
+                cell.position.y = y
+                y = y - cell.size.height - spacing
                 break
             }
             
             self.addChild(cell)
-            cell.resetPosition()
+            Control.set.remove(cell)
         }
         
         self.size = self.calculateAccumulatedFrame().size
@@ -60,6 +66,54 @@ class ScrollNode: Control {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func back() {
+        guard self.cellIndex > 0 else { return }
+        self.cellIndex = self.cellIndex - 1
+        
+        switch self.scrollDirection {
+        case .horizontal:
+            for cell in self.cells {
+                let moveEffect = SKTMoveEffect(node: cell, duration: 0.5, startPosition: cell.position, endPosition: cell.position +
+                    CGPoint(x: cell.size.width + self.spacing, y: 0))
+                moveEffect.timingFunction = SKTTimingFunctionQuinticEaseInOut
+                cell.run(SKAction.actionWithEffect(moveEffect))
+            }
+            break
+        case .vertical:
+            for cell in self.cells {
+                let moveEffect = SKTMoveEffect(node: cell, duration: 0.5, startPosition: cell.position, endPosition: cell.position +
+                    CGPoint(x: 0, y: -cell.size.height + -self.spacing))
+                moveEffect.timingFunction = SKTTimingFunctionQuinticEaseInOut
+                cell.run(SKAction.actionWithEffect(moveEffect))
+            }
+            break
+        }
+    }
+    
+    func forward() {
+        guard self.cellIndex < self.cells.count - 1 else { return }
+        self.cellIndex = self.cellIndex + 1
+        
+        switch self.scrollDirection {
+        case .horizontal:
+            for cell in self.cells {
+                let moveEffect = SKTMoveEffect(node: cell, duration: 0.5, startPosition: cell.position, endPosition: cell.position +
+                    CGPoint(x: -cell.size.width + -self.spacing, y: 0))
+                moveEffect.timingFunction = SKTTimingFunctionQuinticEaseInOut
+                cell.run(SKAction.actionWithEffect(moveEffect))
+            }
+            break
+        case .vertical:
+            for cell in self.cells {
+                let moveEffect = SKTMoveEffect(node: cell, duration: 0.5, startPosition: cell.position, endPosition: cell.position +
+                    CGPoint(x: 0, y: cell.size.height + self.spacing))
+                moveEffect.timingFunction = SKTTimingFunctionQuinticEaseInOut
+                cell.run(SKAction.actionWithEffect(moveEffect))
+            }
+            break
+        }
     }
     
     func touchMoved(touch: UITouch) {
@@ -72,7 +126,7 @@ class ScrollNode: Control {
         guard let cellsLast = self.cells.last else { return }
         
         var x = touchDelta.x * 2 * -1
-        var y = touchDelta.y * 2
+        var y = touchDelta.y * 2 * -1
         
         switch self.scrollDirection {
         case .horizontal:
@@ -80,18 +134,17 @@ class ScrollNode: Control {
             if abs(x) > 1 {
                 
                 if x > 0 {
-                    if cellsFirst.sketchPosition.x + x > 0 {
-                        x = -cellsFirst.sketchPosition.x
+                    if cellsFirst.position.x + x > 0 {
+                        x = -cellsFirst.position.x
                     }
                 } else {
-                    if cellsLast.sketchPosition.x + x < 0 {
-                        x = -cellsLast.sketchPosition.x
+                    if cellsLast.position.x + x < 0 {
+                        x = -cellsLast.position.x
                     }
                 }
                 
                 for cell in self.cells {
-                    cell.sketchPosition.x = cell.sketchPosition.x + x
-                    cell.resetPosition()
+                    cell.position.x = cell.position.x + x
                 }
             }
             
@@ -101,18 +154,17 @@ class ScrollNode: Control {
             if abs(y) > 1 {
                 
                 if y > 0 {
-                    if cellsFirst.sketchPosition.y + y > 0 {
-                        y = -cellsFirst.sketchPosition.y
+                    if cellsLast.position.y + y > 0 {
+                        y = -cellsLast.position.y
                     }
                 } else {
-                    if cellsLast.sketchPosition.y + y < 0 {
-                        y = -cellsLast.sketchPosition.y
+                    if cellsFirst.position.y + y < 0 {
+                        y = -cellsFirst.position.y
                     }
                 }
                 
                 for cell in self.cells {
-                    cell.sketchPosition.y = cell.sketchPosition.y + y
-                    cell.resetPosition()
+                    cell.position.y = cell.position.y + y
                 }
             }
             break
@@ -122,19 +174,14 @@ class ScrollNode: Control {
     
     
     #if os(iOS) || os(tvOS)
-    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    for t in touches { self.touchMoved(touch: t) }
+        for t in touches { self.touchMoved(touch: t) }
     }
-    
     #endif
     
     #if os(OSX)
-    
     override func mouseDragged(with event: UITouch) {
         self.touchMoved(touch: event)
-        
     }
-    
     #endif
 }

@@ -35,7 +35,7 @@ class GameScene: SKScene {
     static var currentSize = CGSize.zero
     static var translate = CGVector.zero
     
-    let blackSpriteNode: BlackSpriteNode
+    weak var blackSpriteNode: BlackSpriteNode!
     
     override init(size: CGSize = defaultSize) {
         

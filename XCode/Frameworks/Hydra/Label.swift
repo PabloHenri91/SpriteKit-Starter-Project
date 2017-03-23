@@ -12,6 +12,7 @@ class Label: Control {
     
     static var defaultColor = GameColors.fontBlack
     static var defaultFontName = fontName.default
+    static var defaultSize = fontSize.fontSize16
     
     enum fontName: String {
         case `default` = "Verdana"
@@ -46,32 +47,33 @@ class Label: Control {
         }
     }
     
-    private var labelNode: SKLabelNode
+    private weak var labelNode: SKLabelNode!
     private var shadowLabelNodes: [SKLabelNode]
     
     init(text: String,
          horizontalAlignmentMode: SKLabelHorizontalAlignmentMode = .center,
          verticalAlignmentMode: SKLabelVerticalAlignmentMode = .center,
          fontName: fontName = Label.defaultFontName,
-         fontSize: fontSize = .fontSize16,
+         fontSize: fontSize = Label.defaultSize,
          fontColor: SKColor = Label.defaultColor,
          x: CGFloat = 0, y: CGFloat = 0,
          horizontalAlignment: horizontalAlignment = .left,
          verticalAlignment: verticalAlignment = .top
         ) {
         
-        self.labelNode = SKLabelNode(fontNamed: fontName.rawValue)
-        self.labelNode.fontSize = fontSize.rawValue
-        self.labelNode.fontColor = fontColor
-        self.labelNode.horizontalAlignmentMode = horizontalAlignmentMode
-        self.labelNode.verticalAlignmentMode = verticalAlignmentMode
-        self.labelNode.text = text
+        let labelNode = SKLabelNode(fontNamed: fontName.rawValue)
+        labelNode.fontSize = fontSize.rawValue
+        labelNode.fontColor = fontColor
+        labelNode.horizontalAlignmentMode = horizontalAlignmentMode
+        labelNode.verticalAlignmentMode = verticalAlignmentMode
+        labelNode.text = text
         
         self.shadowLabelNodes = [SKLabelNode]()
         
         super.init(x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
         
-        self.addChild(self.labelNode)
+        self.addChild(labelNode)
+        self.labelNode = labelNode
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -110,7 +112,6 @@ class Label: Control {
         }
     }
     #endif
-
 }
 
 extension String {

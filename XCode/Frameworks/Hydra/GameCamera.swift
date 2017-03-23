@@ -10,7 +10,7 @@ import SpriteKit
 
 class GameCamera: SKNode {
     
-    var node: SKNode?
+    weak var node: SKNode?
     
     func update() {
         

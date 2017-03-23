@@ -19,9 +19,9 @@ class Button: Control {
         }
     }
     
-    var label: Label?
+    weak var label: Label?
     
-    var icon: SKSpriteNode?
+    weak var icon: SKSpriteNode?
     
     private var touchUpEvent: Event?
     

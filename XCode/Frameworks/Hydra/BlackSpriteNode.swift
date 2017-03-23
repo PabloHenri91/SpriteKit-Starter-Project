@@ -9,9 +9,23 @@
 import SpriteKit
 
 class BlackSpriteNode: Control {
+    
+    private var touchUpEvent: Event?
+    
+    func addHandler(block: @escaping () -> Void) {
+        if self.touchUpEvent == nil  {
+            self.touchUpEvent = Event()
+        }
+        self.touchUpEvent?.add(handler: block)
+    }
+    
+    func removeAllHandlers() {
+        self.touchUpEvent = nil
+    }
 
     init() {
         super.init(x: 0, y: 0, color: GameColors.blackSpriteNode, size: GameScene.currentSize)
+        self.isUserInteractionEnabled = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -22,4 +36,32 @@ class BlackSpriteNode: Control {
         super.resetPosition()
         self.size = GameScene.currentSize
     }
+    
+    func touchUp(touch: UITouch) {
+        if let parent = self.parent {
+            if self.contains(touch.location(in: parent)) {
+                self.touchUpEvent?.raise()
+            }
+        }
+    }
+    
+    #if os(iOS) || os(tvOS)
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchUp(touch: t) }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchUp(touch: t) }
+    }
+    
+    #endif
+    
+    #if os(OSX)
+    
+    override func mouseUp(with event: UITouch) {
+        self.touchUp(touch: event)
+    }
+    
+    #endif
 }

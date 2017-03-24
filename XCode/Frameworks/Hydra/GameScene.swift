@@ -62,17 +62,23 @@ class GameScene: SKScene {
     
     static func updateSize() {
         
-        let xScale = self.viewBoundsSize.width / sketchSize.width
-        let yScale = self.viewBoundsSize.height / sketchSize.height
+        let xScale = GameScene.viewBoundsSize.width / GameScene.sketchSize.width
+        let yScale = GameScene.viewBoundsSize.height / GameScene.sketchSize.height
         let scale = min(xScale, yScale)
         
-        self.currentSize.width = self.viewBoundsSize.width / scale
-        self.currentSize.height = self.viewBoundsSize.height / scale
+        GameScene.currentSize.width = GameScene.viewBoundsSize.width / scale
+        GameScene.currentSize.height = GameScene.viewBoundsSize.height / scale
         
-        self.translate.dx = (self.currentSize.width - self.sketchSize.width)/2
-        self.translate.dy = (self.currentSize.height - self.sketchSize.height)/2
+        GameScene.translate.dx = (GameScene.currentSize.width - GameScene.sketchSize.width)/2
+        GameScene.translate.dy = (GameScene.currentSize.height - GameScene.sketchSize.height)/2
         
         Control.resetPosition()
+        
+        GameScene.current()?.updateSize()
+    }
+    
+    func updateSize() {
+        
     }
     
     func load() {

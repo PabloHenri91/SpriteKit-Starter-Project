@@ -10,9 +10,9 @@ import SpriteKit
 
 class Box: Control {
     
-    override init(imageNamed name: String, x: CGFloat? = nil, y: CGFloat? = nil,
+    init(imageNamed name: String, x: CGFloat? = nil, y: CGFloat? = nil,
                   horizontalAlignment: horizontalAlignment = .center,
-                  verticalAlignment: verticalAlignment = .center) {
+                  verticalAlignment: verticalAlignment = .center, animated: Bool = true) {
         
         super.init(imageNamed: name, x: x ?? 0, y: y ?? 0,
                    horizontalAlignment: horizontalAlignment,
@@ -20,7 +20,9 @@ class Box: Control {
         
         self.alignCenter(x: x, y: y)
         
-        self.pop()
+        if animated {
+            self.pop()
+        }
     }
     
     override init(x: CGFloat? = nil, y: CGFloat? = nil,

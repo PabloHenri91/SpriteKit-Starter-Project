@@ -104,6 +104,10 @@ class Label: Control {
         }
     }
     
+    override func set(color: SKColor, blendMode: SKBlendMode = .alpha) {
+        self.labelNode.fontColor = color
+    }
+    
     #if os(OSX)
     static func printFonts() {
         let fonts = NSFontManager.shared().availableFontFamilies

@@ -68,6 +68,36 @@ class ScrollNode: Control {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func remove(at index: Int) {
+        switch self.scrollDirection {
+        case .horizontal:
+            var i = 0
+            for cell in self.cells {
+                if i > index {
+                    let moveEffect = SKTMoveEffect(node: cell, duration: 0.5, startPosition: cell.position, endPosition: cell.position +
+                        CGPoint(x: -cell.size.width + -self.spacing, y: 0))
+                    moveEffect.timingFunction = SKTTimingFunctionQuinticEaseInOut
+                    cell.run(SKAction.actionWithEffect(moveEffect))
+                }
+                i = i + 1
+            }
+            break
+        case .vertical:
+            var i = 0
+            for cell in self.cells {
+                if i > index {
+                    let moveEffect = SKTMoveEffect(node: cell, duration: 0.5, startPosition: cell.position, endPosition: cell.position +
+                        CGPoint(x: 0, y: cell.size.height + self.spacing))
+                    moveEffect.timingFunction = SKTTimingFunctionQuinticEaseInOut
+                    cell.run(SKAction.actionWithEffect(moveEffect))
+                }
+                i = i + 1
+            }
+            break
+        }
+        self.cells.remove(at: index).removeFromParent()
+    }
+    
     func back() {
         guard self.cellIndex > 0 else { return }
         self.cellIndex = self.cellIndex - 1

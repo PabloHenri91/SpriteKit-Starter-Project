@@ -33,9 +33,9 @@ class ServerManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate
         let productName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
         
         let peerID = MCPeerID(displayName: displayName)
-        self.session = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .none)
+        self.session = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .optional)
         self.session.delegate = self
-    
+        
         self.nearbyServiceBrowser = MCNearbyServiceBrowser(peer: peerID, serviceType: productName)
         self.nearbyServiceAdvertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: productName)
     }
@@ -161,5 +161,4 @@ class ServerManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate
         advertiser.stopAdvertisingPeer()
         advertiser.delegate = nil
     }
-
 }

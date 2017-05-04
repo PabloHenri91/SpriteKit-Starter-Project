@@ -23,6 +23,8 @@ class Box: Control {
         if animated {
             self.pop()
         }
+        
+        Metrics.loadBox(boxName: "\(type(of: self).description().components(separatedBy: ".").last!)")
     }
     
     override init(x: CGFloat? = nil, y: CGFloat? = nil,
@@ -36,13 +38,15 @@ class Box: Control {
         self.alignCenter(x: x, y: y)
         
         self.pop()
+        
+        Metrics.loadBox(boxName: "\(type(of: self).description().components(separatedBy: ".").last!)")
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func alignCenter(x: CGFloat? = nil, y: CGFloat? = nil) {
+    func alignCenter(x: CGFloat? = nil, y: CGFloat? = nil) {
         if x == nil {
             self.sketchPosition.x = GameScene.sketchSize.width/2 - self.size.width/2
         }
@@ -75,5 +79,4 @@ class Box: Control {
             SKAction.actionWithEffect(effect1)
             ]))
     }
-    
 }

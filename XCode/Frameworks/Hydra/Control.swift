@@ -30,6 +30,8 @@ class Control: SKSpriteNode {
     
     var sketchPosition: CGPoint = CGPoint.zero
     
+    weak var control: Control?
+    
     init(x: CGFloat, y: CGFloat,
          horizontalAlignment: horizontalAlignment = .left,
          verticalAlignment: verticalAlignment = .top,
@@ -44,9 +46,21 @@ class Control: SKSpriteNode {
          horizontalAlignment: horizontalAlignment = .left,
          verticalAlignment: verticalAlignment = .top) {
         
-        let texture = SKTexture(imageNamed: name, filteringMode: GameScene.defaultFilteringMode)
-        
-        super.init(texture: texture, color: .clear, size: texture.size())
+        let words = name.components(separatedBy: "_")
+        if words.count > 1 {
+            let control = Control(imageNamed: words[0], x: 0, y: 0)
+            let words = words[1].components(separatedBy: "x")
+            let size = CGSize(width: Int(words[0]) ?? 0, height: Int(words[1]) ?? 0)
+            super.init(texture: nil, color: .clear, size: size)
+            self.addChild(control)
+            self.control = control
+            control.centerRect = CGRect(origin: CGPoint(x: 0.5, y: 0.5), size: CGSize(width: 0, height: 0))
+            control.xScale = self.size.width / control.size.width
+            control.yScale = self.size.height / control.size.height
+        } else {
+            let texture = SKTexture(imageNamed: name, filteringMode: GameScene.defaultFilteringMode)
+            super.init(texture: texture, color: .clear, size: texture.size())
+        }
         
         self.load(x: x, y: y, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
     }
@@ -109,6 +123,22 @@ class Control: SKSpriteNode {
     static func resetPosition() {
         for control in Control.set {
             control.resetPosition()
+        }
+    }
+    
+    override func addChild(_ node: SKNode) {
+        let yScale = node.yScale
+        let xScale = node.xScale
+        super.addChild(node)
+        node.xScale = xScale/self.xScale
+        node.yScale = yScale/self.yScale
+    }
+    
+    override func set(color: SKColor, blendMode: SKBlendMode = .alpha) {
+        if let control = self.control {
+            control.set(color: color, blendMode: blendMode)
+        } else {
+            super.set(color: color, blendMode: blendMode)
         }
     }
 }

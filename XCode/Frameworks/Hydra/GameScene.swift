@@ -8,6 +8,10 @@
 
 import SpriteKit
 
+#if os(iOS)
+    import UserNotifications
+#endif
+
 #if os(watchOS)
     import WatchKit
     typealias SKColor = UIColor
@@ -18,6 +22,10 @@ import SpriteKit
 #endif
 
 class GameScene: SKScene {
+    
+    private var fps = 0
+    private var lastSecond: TimeInterval = 0
+    var needMusic = true
     
     static func current() -> GameScene? {
         return GameScene.lastInstance
@@ -54,6 +62,8 @@ class GameScene: SKScene {
         self.blackSpriteNode.isHidden = true
         
         GameScene.lastInstance = self
+        
+        Metrics.loadScene(sceneName: "\(type(of: self).description().components(separatedBy: ".").last!)")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -98,6 +108,17 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         GameScene.currentTime = currentTime
+        self.fps = self.fps + 1
+        
+        if currentTime - self.lastSecond > 1 {
+            self.lastSecond = currentTime
+            self.fpsCountUpdate(fps: self.fps)
+            self.fps = 0
+        }
+    }
+    
+    func fpsCountUpdate(fps: Int) {
+        
     }
     
     func touchDown(touch: UITouch) {
@@ -156,6 +177,21 @@ class GameScene: SKScene {
     }
     
     #endif
+    
+    
+    func registerUserNotificationSettings() {
+        #if os(iOS)
+            if #available(iOS 10.0, *) {
+                let authorizationOptions: UNAuthorizationOptions = [.badge, .sound, .alert]
+                UNUserNotificationCenter.current().requestAuthorization(options: authorizationOptions) { (granted: Bool, error: Error?) in
+                    
+                }
+            } else {
+                let userNotificationSettings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
+                UIApplication.shared.registerUserNotificationSettings(userNotificationSettings)
+            }
+        #endif
+    }
 }
 
 extension UITouch {

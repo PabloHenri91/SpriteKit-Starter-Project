@@ -165,7 +165,7 @@ extension SKSpriteNode {
         self.setScaleToFit(width: size.width, height: size.height)
     }
     
-    func set(color: SKColor, blendMode: SKBlendMode = .alpha) {
+    @objc func set(color: SKColor, blendMode: SKBlendMode = .alpha) {
         self.color = color
         self.colorBlendFactor = 1
         self.blendMode = blendMode

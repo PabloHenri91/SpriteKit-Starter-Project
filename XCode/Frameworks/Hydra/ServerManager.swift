@@ -91,7 +91,7 @@ class ServerManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate
     //MARK: MCSessionDelegate
     
     // Remote peer changed state.
-    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
+    public func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState){
         
         var event = ""
         
@@ -112,7 +112,8 @@ class ServerManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate
     }
     
     // Received data from remote peer.
-    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
+    public func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID){
+        
         var jsonObject = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
         let event = jsonObject["event"] as! String
         let items = jsonObject["items"] as Any
@@ -121,19 +122,19 @@ class ServerManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate
     }
     
     // Received a byte stream from remote peer.
-    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
+    public func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID){
         
     }
     
     // Start receiving a resource from remote peer.
-    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
+    public func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress){
         
     }
     
     // Finished receiving a resource from remote peer and saved the content
     // in a temporary location - the app is responsible for moving the file
     // to a permanent location within its sandbox.
-    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
+    public func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?){
         
     }
     

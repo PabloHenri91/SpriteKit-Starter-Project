@@ -40,7 +40,7 @@ class Label: Control {
     
     var fontSize: fontSize {
         get {
-            return fontSize(rawValue: self.labelNode.fontSize)!
+            return Label.fontSize(rawValue: self.labelNode.fontSize)!
         }
         set(newValue) {
             self.labelNode.fontSize = newValue.rawValue
@@ -110,7 +110,7 @@ class Label: Control {
     
     #if os(OSX)
     static func printFonts() {
-        let fonts = NSFontManager.shared().availableFontFamilies
+        let fonts = NSFontManager.shared.availableFontFamilies
         for name in fonts {
             print("\(name)")
         }

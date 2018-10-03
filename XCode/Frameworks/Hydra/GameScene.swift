@@ -52,7 +52,8 @@ class GameScene: SKScene {
         GameScene.sketchSize = size
         GameScene.updateSize()
         
-        self.blackSpriteNode = BlackSpriteNode()
+        let blackSpriteNode = BlackSpriteNode()
+        self.blackSpriteNode = blackSpriteNode
         
         super.init(size: GameScene.currentSize)
         self.anchorPoint = CGPoint(x: 0, y: 1)

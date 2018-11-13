@@ -193,6 +193,31 @@ class GameScene: SKScene {
             }
         #endif
     }
+    
+    override func addChild(_ node: SKNode) {
+        if let control = node as? Control {
+            if GameScene.iPhoneX {
+                control.verticalAlignment = .center
+                control.resetPosition()
+            }
+        }
+        super.addChild(node)
+    }
+    
+    static var iPhoneX: Bool = {
+        #if os(iOS)
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 2436, 2688, 1792:
+                return true
+            default:
+                return false
+            }
+        }
+        #endif
+        return false
+        
+    }()
 }
 
 extension UITouch {

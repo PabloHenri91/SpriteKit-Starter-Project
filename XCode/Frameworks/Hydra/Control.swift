@@ -93,17 +93,20 @@ class Control: SKSpriteNode {
     }
     
     func resetPosition() {
+        let x = (GameScene.translate.dx * self.horizontalAlignment.rawValue)
+        let y = -(GameScene.translate.dy * self.verticalAlignment.rawValue)
         self.position = CGPoint(
-            x: self.sketchPosition.x + (GameScene.translate.dx * self.horizontalAlignment.rawValue),
-            y: -self.sketchPosition.y + -(GameScene.translate.dy * self.verticalAlignment.rawValue)
+            x: self.sketchPosition.x + x,
+            y: -self.sketchPosition.y + y
         )
     }
     
     func positionWith(sketchPosition: CGPoint) -> CGPoint {
-        
+        let x = (GameScene.translate.dx * self.horizontalAlignment.rawValue)
+        let y = -(GameScene.translate.dy * self.verticalAlignment.rawValue)
         return CGPoint(
-            x: sketchPosition.x + (GameScene.translate.dx * self.horizontalAlignment.rawValue),
-            y: -sketchPosition.y + -(GameScene.translate.dy * self.verticalAlignment.rawValue)
+            x: sketchPosition.x + x,
+            y: -sketchPosition.y + y
         )
     }
     

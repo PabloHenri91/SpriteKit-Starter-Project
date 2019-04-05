@@ -12,13 +12,18 @@ class GameCamera: SKNode {
     
     weak var node: SKNode?
     
-    func update() {
+    func update(useLerp: Bool = false) {
         
         if let node = self.node {
-            let newPosition = node.position
-            self.position = CGPoint(
-                x: newPosition.x - GameScene.currentSize.width/2,
-                y: newPosition.y + GameScene.currentSize.height/2)
+            let newPosition = CGPoint(
+                x: node.position.x - GameScene.currentSize.width/2,
+                y: node.position.y + GameScene.currentSize.height/2)
+            
+            if useLerp {
+                self.position = lerp(start: self.position, end: newPosition, t: 0.05)
+            } else {
+                self.position = newPosition
+            }
         }
         
         self.scene?.centerOnNode(node: self)

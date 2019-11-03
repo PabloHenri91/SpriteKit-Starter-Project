@@ -144,6 +144,10 @@ class Control: SKSpriteNode {
             super.set(color: color, blendMode: blendMode)
         }
     }
+    
+    func canForceCenterVerticalAlignment() -> Bool {
+        return true
+    }
 }
 
 extension SKSpriteNode {

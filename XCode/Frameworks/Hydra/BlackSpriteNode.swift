@@ -64,4 +64,8 @@ class BlackSpriteNode: Control {
     }
     
     #endif
+    
+    override func canForceCenterVerticalAlignment() -> Bool {
+        return false
+    }
 }

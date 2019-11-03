@@ -79,4 +79,8 @@ class Box: Control {
             SKAction.actionWithEffect(effect1)
             ]))
     }
+    
+    override func canForceCenterVerticalAlignment() -> Bool {
+        return false
+    }
 }

@@ -23,8 +23,6 @@ class Box: Control {
         if animated {
             self.pop()
         }
-        
-        Metrics.loadBox(boxName: "\(type(of: self).description().components(separatedBy: ".").last!)")
     }
     
     override init(x: CGFloat? = nil, y: CGFloat? = nil,
@@ -38,8 +36,6 @@ class Box: Control {
         self.alignCenter(x: x, y: y)
         
         self.pop()
-        
-        Metrics.loadBox(boxName: "\(type(of: self).description().components(separatedBy: ".").last!)")
     }
     
     required init?(coder aDecoder: NSCoder) {

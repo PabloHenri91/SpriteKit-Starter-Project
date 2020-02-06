@@ -63,8 +63,6 @@ class GameScene: SKScene {
         self.blackSpriteNode.isHidden = true
         
         GameScene.lastInstance = self
-        
-        Metrics.loadScene(sceneName: "\(type(of: self).description().components(separatedBy: ".").last!)")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -303,6 +301,7 @@ public enum Model : String {
     unrecognized     = "?unrecognized?"
 }
 
+#if os(iOS)
 public extension UIDevice {
     
     var type: Model {
@@ -378,3 +377,4 @@ public extension UIDevice {
         return Model.unrecognized
     }
 }
+#endif

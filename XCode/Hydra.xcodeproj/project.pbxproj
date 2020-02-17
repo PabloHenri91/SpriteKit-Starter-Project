@@ -10,9 +10,6 @@
 		8425F6051E317D9200A8E1B5 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425F6041E317D9200A8E1B5 /* ServerManager.swift */; };
 		8425F6061E317D9200A8E1B5 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425F6041E317D9200A8E1B5 /* ServerManager.swift */; };
 		8425F6071E317D9200A8E1B5 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425F6041E317D9200A8E1B5 /* ServerManager.swift */; };
-		842DD3E71E202A4200FCABFB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842DD3E51E202A4200FCABFB /* Crashlytics.framework */; };
-		842DD3EA1E202A4200FCABFB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842DD3E61E202A4200FCABFB /* Fabric.framework */; };
-		842DD3EE1E202D0B00FCABFB /* GameAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842DD3ED1E202D0B00FCABFB /* GameAnalytics.framework */; };
 		842DD3F01E2035F700FCABFB /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DD3EF1E2035F700FCABFB /* Metrics.swift */; };
 		843222661E1EC7A200122709 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432225A1E1EC7A200122709 /* CGFloat+Extensions.swift */; };
 		843222671E1EC7A200122709 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432225A1E1EC7A200122709 /* CGFloat+Extensions.swift */; };
@@ -172,9 +169,6 @@
 
 /* Begin PBXFileReference section */
 		8425F6041E317D9200A8E1B5 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
-		842DD3E51E202A4200FCABFB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		842DD3E61E202A4200FCABFB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		842DD3ED1E202D0B00FCABFB /* GameAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GameAnalytics.framework; sourceTree = "<group>"; };
 		842DD3EF1E2035F700FCABFB /* Metrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		8432225A1E1EC7A200122709 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CGFloat+Extensions.swift"; path = "../../SKTUtils/SKTUtils/CGFloat+Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		8432225B1E1EC7A200122709 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CGPoint+Extensions.swift"; path = "../../SKTUtils/SKTUtils/CGPoint+Extensions.swift"; sourceTree = SOURCE_ROOT; };
@@ -239,9 +233,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842DD3E71E202A4200FCABFB /* Crashlytics.framework in Frameworks */,
-				842DD3EE1E202D0B00FCABFB /* GameAnalytics.framework in Frameworks */,
-				842DD3EA1E202A4200FCABFB /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,9 +273,6 @@
 		849C3A151E1EB26A0092225E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				842DD3E51E202A4200FCABFB /* Crashlytics.framework */,
-				842DD3E61E202A4200FCABFB /* Fabric.framework */,
-				842DD3ED1E202D0B00FCABFB /* GameAnalytics.framework */,
 				849C3A161E1EB2780092225E /* Hydra */,
 				849C3A3F1E1EC0760092225E /* SKTUtils */,
 			);
@@ -353,7 +341,7 @@
 				843222641E1EC7A200122709 /* SKTTimingFunctions.swift */,
 				843222651E1EC7A200122709 /* Vector3.swift */,
 			);
-			path = SKTUtils;
+			name = SKTUtils;
 			sourceTree = "<group>";
 		};
 		84E06AEA1E1EAEF100AD72F0 = {
@@ -552,7 +540,6 @@
 				TargetAttributes = {
 					84E06AF71E1EAEF100AD72F0 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = JZ3J7RVLD7;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.iCloud = {
@@ -1029,7 +1016,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOS/Hydra.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JZ3J7RVLD7;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1050,7 +1037,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOS/Hydra.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JZ3J7RVLD7;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",

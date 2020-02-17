@@ -63,6 +63,7 @@ class ServerManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate
     
     /// Send a message to the server
     func emit(_ event: String, _ items: Any...) {
+        guard self.session.connectedPeers.count > 0 else { return }
         let data = try! JSONSerialization.data(withJSONObject: ["event": event, "items": items])
         try! self.session.send(data, toPeers: self.session.connectedPeers, with: .reliable)
     }
@@ -91,7 +92,7 @@ class ServerManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate
     //MARK: MCSessionDelegate
     
     // Remote peer changed state.
-    public func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState){
+    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState){
         
         var event = ""
         
@@ -112,7 +113,7 @@ class ServerManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate
     }
     
     // Received data from remote peer.
-    public func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID){
+    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID){
         
         var jsonObject = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
         let event = jsonObject["event"] as! String
@@ -122,12 +123,12 @@ class ServerManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate
     }
     
     // Received a byte stream from remote peer.
-    public func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID){
+    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID){
         
     }
     
     // Start receiving a resource from remote peer.
-    public func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress){
+    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress){
         
     }
     

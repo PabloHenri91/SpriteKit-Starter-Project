@@ -10,7 +10,7 @@ import SpriteKit
 
 class Event {
     
-    public typealias EventHandler = () -> ()
+    typealias EventHandler = () -> ()
     
     private var eventHandlers = [EventHandler]()
     

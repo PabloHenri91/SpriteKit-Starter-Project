@@ -263,7 +263,7 @@ extension Sequence {
     }
 }
 
-public enum Model : String {
+enum Model : String {
     case
     iPod1            = "iPod 1",
     iPod2            = "iPod 2",
@@ -302,7 +302,7 @@ public enum Model : String {
 }
 
 #if os(iOS)
-public extension UIDevice {
+extension UIDevice {
     
     var type: Model {
         var systemInfo = utsname()
